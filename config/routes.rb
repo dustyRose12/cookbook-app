@@ -10,5 +10,10 @@ Rails.application.routes.draw do
 
   get '/recipes/:id' => 'recipes#show' #URL is recipes with ID, action is show to show a specific one
 
+  get '/recipes/:id/edit' => 'recipes#edit'
+  patch '/recipes/:id' => 'recipes#update'
+
+  delete '/recipes/:id' => 'recipes#destroy'
+
 
 end
