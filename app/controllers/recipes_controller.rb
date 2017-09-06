@@ -1,13 +1,4 @@
 class RecipesController < ApplicationController
-  # def one_recipe_action
-  #   @recipe = Recipe.first
-  #   render 'one_recipe_page.html.erb'
-  # end
-
-  # def all_recipes_action
-  #   @recipes = Recipe.all
-  #   render 'all_recipes_page.html.erb'
-  # end
 
   def index
     @recipes = Recipe.all
@@ -26,6 +17,8 @@ class RecipesController < ApplicationController
                                     )
     recipe.save
     #typing Recipe.create is the same as typing Recipe.new(blabla) + putting recipe.save at the bottom
+    flash[:success] = "Recipe Successfully Created"
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def show
@@ -53,13 +46,17 @@ class RecipesController < ApplicationController
     # recipe.directions = params[:directions]
 
     recipe.save
-
     #recipe.update is the same as using recipe.assign_attributes(blabla) + typing recipe.save
+    flash[:success] = "Recipe Successfully Updated"
+    redirect_to "/recipes/#{recipe.id}"
+
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy
+    flash[:warning] = "Recipe Successfully Destroyed"
+    redirect_to "/recipes"
   end
 
 end
