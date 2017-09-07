@@ -1,9 +1,16 @@
-<h1>Cookbook</h1>
-
-<% @recipes.each do |recipe| %>
-  <h2>Title: <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></h2>
-  <h3>Chef: <%= recipe.chef %></h3>
-  <h4>Ingredients: <%= recipe.ingredients %></h4>
-  <h5>Directions: <%= recipe.directions %></h5>
-  <br>
+<div class="row">
+  <% @recipes.each_slice(3) do |recipe_slice| %>
+    <div class="row">
+    <% recipe_slice.each do |recipe| %>
+        <div class="col-md-4 col-sm-6 product-index-single">
+          <div class="well">
+              <h2>Title: <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></h2></a>
+              <h3>Chef: <%= recipe.chef %></h3>
+              <img src="<%= recipe.image_url %>" alt="">
+              <h4>Ingredients: <%= recipe.ingredients %></h4>
+              <h4>Directions: <%= recipe.directions %></h4>
+          </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

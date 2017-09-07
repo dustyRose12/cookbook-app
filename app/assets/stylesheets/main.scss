@@ -1,21 +1,15 @@
 
-$first-color: lightpurple;
-$second-color: powderblue;
-
-
-h1{
-  color: $first-color;
-}
-
-h2{
-  background-color: $first-color;
-}
+//TYPEOGRAPHY
 
 body{
-  background-color: $second-color;
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ background-image: url('vintage-concrete.png');
+
 }
 
-h3, h4{
-  background-color: white;
-  color: $second-color;
+.product-index-single{
+}
+
+.well img{
+  height: 100%;
 }
