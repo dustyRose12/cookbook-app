@@ -2,6 +2,11 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+
+    sort_attribute = params[:sort] #allows to sort in a string query on the url to order by attribute
+    if sort_attribute
+      @recipes = @recipes.order(sort_attribute)
+    end
   end
 
   def new
